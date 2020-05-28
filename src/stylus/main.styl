@@ -1,0 +1,36 @@
+
+@import 'base/_mixins.styl'
+@import 'base/_variables.styl'
+
+@import 'components/main/_header.styl'
+@import 'components/main/_footer.styl'
+
+
+*
+	box-sizing border-box
+html
+	font-size rootFontSize
+#root
+	display flex
+	flex-direction column
+	min-height 100vh
+body
+	margin 0
+	padding 0
+	font-family systemFont
+	font-size baseFontSize
+main
+	width 100%
+	font-size baseFontSize
+	flex-grow 1
+	background #f6f6f6
+	padding-top 5rem
+	+minWidth(medium)
+		padding 0 0;
+.container
+	width 100%
+	max-width 1170px
+	margin 0 auto
+	
+
+@import 'base/_helpers.styl'

@@ -1,0 +1,14 @@
+script(src='js/jquery-3.3.1.min.js')
+script.
+	
+	// Detect Mac
+	if(navigator.userAgent.indexOf('Mac') > 0)
+		$('body').addClass('isMacOs');
+
+	// Detect Browser
+	$constants.isChrome = !!window.chrome && (!!window.chrome.webstore || !!window.chrome.runtime);
+	$constants.isSafari = /constructor/i.test(window.HTMLElement) || (function (p) { return p.toString() === "[object SafariRemoteNotification]"; })(!window['safari'] || (typeof safari !== 'undefined' && safari.pushNotification));
+	$constants.isIE = /*@cc_on!@*/false || !!document.documentMode;
+	$constants.isFirefox = typeof InstallTrigger !== 'undefined';
+	$constants.isEdge = !$constants.isIE && !!window.StyleMedia;
+	$constants.isOpera = (!!window.opr && !!opr.addons) || !!window.opera || navigator.userAgent.indexOf(' OPR/') >= 0;
