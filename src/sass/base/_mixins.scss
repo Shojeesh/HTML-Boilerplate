@@ -3,9 +3,6 @@
 // Mobile first Media Query
 
 @mixin mq($point) {
-  @if $point == extraLarge {
-     @media (min-width: 1800px) { @content ; }
-  }
   @if $point == large {
      @media (min-width: 1200px) { @content ; }
   }
@@ -14,6 +11,9 @@
   }
   @if $point == small {
      @media (min-width: 769px) { @content ; }
+  }
+  @if $point == tiny {
+     @media (min-width: 361px) { @content ; }
   }
 }
 
@@ -28,7 +28,7 @@
      @media (max-width: 991px) { @content ; }
   }
    @else if $point == small {
-     @media (max-width: 767px)  { @content ; }
+     @media (max-width: 768px)  { @content ; }
   }
   @else if $point == tiny {
      @media (max-width: 360px)  { @content ; }
