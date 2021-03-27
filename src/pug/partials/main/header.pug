@@ -1,6 +1,17 @@
 header
-	.container.flexBox
-		.brandLogo
-			a(href='index.html')
-				img(src='images/logo.png' alt='')
-		.mainNav
+	.container
+		.headerInner
+			.brandLogo
+				a(href='index.html')
+					img(src='images/logo.png' alt='logo')
+			.headerMiddle
+				.mainNav
+					a.isActive(href='index.html') Art
+					a(href='#') About
+					a(href='#') Contact
+			.headerCart
+				| Cart
+				span 2
+			.burgerBlock
+				.burger
+			.drawerBackdrop

@@ -1,0 +1,124 @@
+
+@import '../../base/_mixins'
+@import '../../base/_variables'
+
+header
+	width 100%
+	z-index 1
+	background #fff
+	padding 10px 0
+	+mq(medium)
+		padding 22px 0 25px 0
+		height 90px
+.headerInner
+	display flex
+	align-items center
+	justify-content space-between
+.brandLogo
+	display flex
+	align-items center
+	justify-content flex-start
+.headerMiddle
+	width 220px
+	height 100vh
+	position fixed
+	top 0
+	right 0
+	padding 20px
+	transform translateX(120%)
+	transition all 0.3s
+	z-index 2
+	background #fff
+	+mq(medium)
+		position relative
+		width auto
+		display flex
+		justify-content flex-end
+		align-items center
+		transform translateX(0)
+		padding 0
+		height auto
+	&.isActive
+		transform translateX(0)
+.mainNav
+	+mq(medium)
+		display flex
+		flex-direction row
+	a
+		color #000
+		font-size 1.5rem
+		flex 1
+		font-weight 300
+		text-align left
+		display block
+		transition all 0.3s
+		&+a
+			margin-top 10px
+		+mq(medium)
+			text-align center
+			display inline-flex
+			align-items center
+			justify-content center
+			&+a
+				margin-left 20px
+				margin-top 0
+		&.isActive, &:hover
+			+mq(medium)
+				text-decoration underline
+.headerCart
+	width auto
+	font-size 1.5rem
+	display flex
+	align-items center
+	margin-left auto
+	+mq(medium)
+		margin-left unset
+	span
+		width 35px
+		height 35px
+		background primaryColor
+		border-radius 50%
+		color #fff
+		font-size 1.5rem
+		display flex
+		align-items center
+		justify-content center
+		margin-left 10px
+.burgerBlock
+	width 40px
+	height 40px
+	display flex
+	align-items center
+	justify-content center
+	cursor pointer
+	+mq(medium)
+		display none
+.burger
+	width 18px
+	height 2px
+	background #757575
+	position relative
+	&:before, &:after
+		content ''
+		position absolute
+		width 18px
+		height 2px
+		background #757575
+		left 0
+	&:before
+		top -5px
+	&:after
+		bottom -5px
+.drawerBackdrop
+	width 100%
+	height 100%
+	position fixed
+	top 0
+	left 0
+	right 0
+	bottom 0
+	background rgba(0, 0, 0, 0.45)
+	display none
+	z-index 1
+	&.isActive
+		display block

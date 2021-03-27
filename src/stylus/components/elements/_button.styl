@@ -1,0 +1,39 @@
+
+// Buttons
+//
+// Markup:
+//  <button class="mainBtn {{modifier_class}}">Click me</button>
+//
+// .isSecondary - Secondary Button
+// .isFull - Full Width Button
+//
+// Styleguide Components.Buttons
+
+
+@import '../../base/_mixins.styl'
+@import '../../base/_variables.styl'
+
+.mainBtn
+	display inline-flex
+	align-items center
+	justify-content center
+	height 60px
+	background primaryColor
+	color #999
+	font-size 1.3rem
+	font-weight 300
+	padding 0 30px
+	transition all 0.3s
+	cursor pointer
+	user-select none
+	border 0
+	outline 0
+	&:hover, &:focus
+		background #000
+		outline 0
+	&.isSecondary
+		background secondaryColor
+		&:hover, &:focus
+			background #000
+	&.isFull
+		width 100%

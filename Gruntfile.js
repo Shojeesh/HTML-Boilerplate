@@ -69,8 +69,8 @@ module.exports = function(grunt) {
 	            files: [
 					{
 					expand: true,
-					cwd: "src/sass/",
-					src: ["*.sass"],
+					cwd: "src/scss/",
+					src: ["*.scss"],
 					dest: "src/css",
 					ext: ".css"
 					}
@@ -113,12 +113,46 @@ module.exports = function(grunt) {
 			}
 		},
 
+		imagemin: {
+	        dynamic: {
+	            files: [{
+	                expand: true,
+	                cwd: 'src/images',
+	                src: ['*.{png,jpg,gif,svg}'],
+	                dest: 'dist/images'
+	            }]
+	        }
+	    },
+
+	    copy: {
+	    	main: {
+	    		expand: true,
+	    		cwd: 'src/plugins',
+	    		src: '**',
+	    		dest: 'dist/plugins',
+	    	},
+		},
+
 		watch: {
 			scripts: {
 				files: ['src/pug/*.pug', 'dist/*.html', 'src/stylus/*.styl', 'src/sass/*.sass', 'src/scss/*.scss'],
-				tasks: ['pug', 'prettify', 'stylus', 'sass', 'autoprefixer', 'cmq', 'minifycss'],
+				tasks: ['pug', 'prettify', 'stylus', 'sass', 'autoprefixer', 'cmq', 'minifycss', 'imagemin', 'copy'],
 			},
 		},
+
+		kss: {
+			options: {
+	        	title: 'Shojeesh Style Guide',
+	        	verbose: false,
+	        	css: [
+	        		"../dist/css/styleguide.min.css"
+	        	]
+	        },
+	        dist: {
+	        	src: "src/stylus/", // path to the sass files to watch for comments
+	        	dest: "styleguide/", // path to where the style guide should live. Add this path to your .gitignore
+	        }
+	    },
 
 	});
 
@@ -132,5 +166,9 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-string-replace');
 	grunt.loadNpmTasks('grunt-combine-media-queries');
 	grunt.registerTask('minifycss','cssmin:minifycss');
+	grunt.loadNpmTasks('grunt-contrib-imagemin');
+	grunt.registerTask('default', ['imagemin']);
+	grunt.loadNpmTasks('grunt-contrib-copy');
+	grunt.loadNpmTasks('grunt-kss');
 };
 

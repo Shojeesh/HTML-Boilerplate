@@ -2,7 +2,7 @@
 
 // Media Queries
 
-
+extralarge = 1600px
 large = 1200px
 medium = 992px
 small = 769px
@@ -15,12 +15,12 @@ mxTiny = 360px
 
 
 
-minWidth(var)
+mq(var)
   condition = '(min-width: %s)' % var
   @media condition
     {block}
     
-maxWidth(var)
+mqMax(var)
   condition = '(max-width: %s)' % var
   @media condition
     {block}
